@@ -5,7 +5,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h2 class="text-center mt-4 mb-2">Edit Your Notes Here!</h2>
+                <h2 class="text-center mt-4 mb-2">Edit Your Todo Here!</h2>
             </div>
         </div>
 
@@ -14,7 +14,7 @@
                 <form class="form-inline justify-content-center" action="{% url 'edit_todo' todo_obj.pk %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        {{ form.text }}
+                        {{ form.todo_text }}
                     </div>
                     <button type="submit" class="mx-2 btn btn-primary">Save</button>
                 </form>

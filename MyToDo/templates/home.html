@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h2 class="text-center mt-4 mb-2">Add Your Notes Here!</h2>
+            <h2 class="text-center mt-4 mb-2">Add Your Todo Here!</h2>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
             <form class="form-inline justify-content-center" action="add_todo/" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                    {{ form.text }}
+                    {{ form.todo_text }}
                 </div>
                 <button type="submit" class="mx-2 btn btn-primary">Submit</button>
             </form>
@@ -27,12 +27,12 @@
                     {% for todo in todo_list %}
                     <tr>
                         <td>
-                                <p>{{ todo.text }}</p>
-                                <p class="text-muted"><small>Added On:{{ todo.added }}</small></p>
+                                <p>{{ todo.todo_text }}</p>
+                                <p class="text-muted"><small>Added On:{{ todo.added_on }}</small></p>
                             
                                 <!-- Show updated time info only if it's not equal to the add time info -->
-                                {% if todo.added != todo.updated %}
-                                    <p class="text-muted"><small>Updated On:{{ todo.updated }}</small></p>
+                                {% if todo.added_on != todo.updated_on %}
+                                    <p class="text-muted"><small>Updated On:{{ todo.updated_on }}</small></p>
                                 {% endif %}
                         </td>
                         <td class="text-right">
